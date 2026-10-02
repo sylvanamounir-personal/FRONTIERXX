@@ -5,8 +5,8 @@ A multi-page, static website for **FrontierX**, an **AI transformation orchestra
 - **Vision:** shape a new generation of enterprises where human ingenuity and AI intelligence work together.
 - **Mission:** move organizations from AI ambition to measurable business outcomes.
 - **Our role:** Envision → Prioritize → Rewire → Orchestrate → Scale → Measure.
-- **Belief:** Build the next enterprise.
-- **Promise:** Build the next enterprise.
+- **Belief:** eXplore What’s Next. eXecute What Matters.
+- **Promise:** eXplore What’s Next. eXecute What Matters.
 
 The framework, terminology, color palette and benchmarks are adapted from Microsoft's **"Becoming a Frontier Firm"** Playbook and an **Agentic Business Process Rewiring Framework**, used here as an illustrative concept. *Not affiliated with or endorsed by Microsoft.*
 
