@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRONTIER XX — Service Offering</title>
+<meta name="description" content="FRONTIER XX service offering — a one-page brochure. The AI transformation orchestrator: from AI ambition to enterprise impact.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<style>
+  :root {
+    --blue:#1C4E7A; --blue-light:#5B86A8; --indigo:#334867; --magenta:#4A5B78;
+    --coral:#6E7C92; --gold:#B8983F; --navy:#1F3353; --night:#0b1220;
+    --mist:#E6EBF1; --ink:#16233b; --muted:#5a6880; --line:rgba(31,51,83,.12);
+    --font:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:#55607a; font-family:var(--font); color:var(--ink); -webkit-font-smoothing:antialiased; }
+
+  /* On-screen: center the sheet on a grey backdrop */
+  body { display:flex; justify-content:center; padding:24px; }
+
+  .sheet {
+    width:210mm; min-height:297mm;
+    background:#fff; position:relative; overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+    display:flex; flex-direction:column;
+  }
+
+  /* ---------- Header band ---------- */
+  .bro-head {
+    background:linear-gradient(135deg,var(--night) 0%,var(--navy) 55%,var(--blue) 120%);
+    color:#fff; padding:22px 26px 24px; position:relative; overflow:hidden;
+  }
+  .bro-head::after {
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(420px 220px at 88% -10%,rgba(202,108,205,.40),transparent 60%),
+              radial-gradient(360px 220px at 4% 130%,rgba(246,188,14,.22),transparent 60%);
+    pointer-events:none;
+  }
+  .bro-head > * { position:relative; z-index:1; }
+  .bro-brand { display:flex; align-items:center; justify-content:space-between; }
+  .bro-logo { height:34px; width:auto; display:block; }
+  .bro-tag { font-size:8.5px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue-light); margin-top:5px; }
+  .bro-badge { font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    color:#fff; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
+    padding:6px 13px; border-radius:30px; }
+  .bro-promise { font-size:28px; font-weight:800; line-height:1.1; margin-top:18px; max-width:85%; }
+  .bro-lead { font-size:11.5px; color:#d6e2f5; line-height:1.5; margin-top:9px; max-width:94%; }
+  .bro-belief { margin-top:14px; font-size:12.5px; font-weight:700; color:var(--gold); }
+
+  /* ---------- Body ---------- */
+  .bro-body { padding:20px 26px 0; flex:1; }
+  .sec-label { font-size:9.5px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--blue); }
+  .sec-title { font-size:15px; font-weight:800; color:var(--navy); margin:3px 0 12px; }
+
+  /* Vision / mission */
+  .vm { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px; }
+  .vm .box { border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:9px; padding:11px 13px; }
+  .vm .box.m { border-left-color:var(--magenta); }
+  .vm h4 { font-size:11.5px; color:var(--navy); margin-bottom:4px; }
+  .vm p { font-size:10px; color:var(--muted); line-height:1.5; }
+
+  /* Services */
+  .svcs { display:grid; grid-template-columns:repeat(5,1fr); gap:9px; margin-bottom:18px; }
+  .svc { border:1px solid var(--line); border-radius:9px; padding:11px 10px 12px; display:flex; flex-direction:column; }
+  .svc .top { height:4px; border-radius:4px; margin:-11px -10px 9px; }
+  .svc .n { width:24px; height:24px; border-radius:50%; color:#fff; font-weight:800; font-size:11px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:7px; }
+  .svc h4 { font-size:11px; color:var(--navy); line-height:1.2; margin-bottom:5px; }
+  .svc p { font-size:8.8px; color:var(--muted); line-height:1.45; }
+  .s1{background:var(--blue);} .s2{background:var(--indigo);} .s3{background:var(--magenta);}
+  .s4{background:var(--coral);} .s5{background:var(--gold);color:var(--navy)!important;}
+
+  /* Role chips */
+  .role { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-bottom:16px; }
+  .chip { border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:8px; padding:9px 8px; text-align:center; }
+  .chip b { display:block; font-size:10.5px; color:var(--navy); }
+  .chip span { font-size:8px; color:var(--muted); line-height:1.35; display:block; margin-top:2px; }
+
+  /* Why band */
+  .why { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:6px; }
+  .why .w { background:var(--mist); border-radius:9px; padding:10px 12px; }
+  .why .w b { font-size:10.5px; color:var(--navy); display:block; margin-bottom:2px; }
+  .why .w span { font-size:9px; color:var(--muted); line-height:1.45; }
+
+  /* ---------- Footer band ---------- */
+  .bro-foot {
+    margin-top:auto; background:var(--navy); color:#fff;
+    padding:14px 26px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+  }
+  .bro-foot .promise { font-size:13px; font-weight:800; color:#fff; }
+  .bro-foot .promise span { color:var(--gold); }
+  .bro-foot .contact { font-size:9.5px; color:#cdd8ec; text-align:right; line-height:1.6; }
+  .bro-foot .contact b { color:#fff; }
+  .bro-copy { background:var(--night); color:#9fb0cc; font-size:8.5px; text-align:center; padding:7px; letter-spacing:.4px; }
+
+  /* ---------- Print: exactly one A4 page ---------- */
+  @page { size:A4; margin:0; }
+  @media print {
+    html, body { background:#fff; }
+    body { display:block; padding:0; }
+    .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; }
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <!-- HEADER -->
+    <div class="bro-head">
+      <div class="bro-brand">
+        <div>
+          <img class="bro-logo" src="assets/logo-lockup-light.svg" alt="FRONTIER XX">
+          <div class="bro-tag">Build the next enterprise.</div>
+        </div>
+        <div class="bro-badge">AI Transformation Orchestrator</div>
+      </div>
+      <div class="bro-promise">Build the next enterprise.</div>
+      <div class="bro-lead">FRONTIER XX builds the next-generation enterprise — where human ingenuity and AI intelligence work together. We own the transformation strategy, rewire your business and orchestrate execution, while our ecosystem of technology and system-integration partners implements and scales the AI.</div>
+      <div class="bro-belief">Build the next enterprise.</div>
+    </div>
+
+    <!-- BODY -->
+    <div class="bro-body">
+      <!-- Vision / Mission -->
+      <div class="vm">
+        <div class="box">
+          <h4>Our Vision</h4>
+          <p>A world where human ingenuity and AI intelligence work together to build the next-generation enterprise — more creative, more adaptive, more human.</p>
+        </div>
+        <div class="box m">
+          <h4>Our Mission</h4>
+          <p>To turn AI ambition into measurable business outcomes — owning the strategy, rewiring the business, and orchestrating a trusted partner ecosystem to deliver.</p>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="sec-label">What we do</div>
+      <div class="sec-title">Five ways we drive impact</div>
+      <div class="svcs">
+        <div class="svc"><div class="top s1"></div><div class="n s1">1</div><h4>Onboarding &amp; Adoption</h4><p>Make business functions productive with Copilot for Business — role by role, in the flow of real work.</p></div>
+        <div class="svc"><div class="top s2"></div><div class="n s2">2</div><h4>Agentic Process Rewiring</h4><p>Rewire outcomes per domain — lean before agents — then connected agents on a shared MCP foundation.</p></div>
+        <div class="svc"><div class="top s3"></div><div class="n s3">3</div><h4>AI Readiness Assessment</h4><p>A six-dimension scan of strategy, people, data, governance &amp; security — with a costed roadmap.</p></div>
+        <div class="svc"><div class="top s4"></div><div class="n s4">4</div><h4>Building the AI Factory</h4><p>Build the diffusion engine — evals, context, agents, governance — the operating system around the tools.</p></div>
+        <div class="svc"><div class="top s5"></div><div class="n s5">5</div><h4>Ownership Transfer</h4><p>We make ourselves unnecessary. Your team, your evals, your IP — fully handed over inside your boundary.</p></div>
+      </div>
+
+      <!-- Role -->
+      <div class="sec-label">How we work</div>
+      <div class="sec-title">We orchestrate the transformation</div>
+      <div class="role">
+        <div class="chip"><b>Envision</b><span>Anchor AI to strategy &amp; a bold ambition</span></div>
+        <div class="chip"><b>Prioritize</b><span>Sequence the value that matters most</span></div>
+        <div class="chip"><b>Rewire</b><span>Redesign the human + AI operating model</span></div>
+        <div class="chip"><b>Orchestrate</b><span>Conduct the delivery ecosystem to one plan</span></div>
+        <div class="chip"><b>Scale</b><span>Industrialize what works, with governance</span></div>
+        <div class="chip"><b>Measure</b><span>Instrument adoption → verifiable impact</span></div>
+      </div>
+
+      <!-- Why -->
+      <div class="sec-label">Why FRONTIER XX</div>
+      <div class="sec-title">An orchestrator, not another integrator</div>
+      <div class="why">
+        <div class="w"><b>Outcome-first</b><span>We commit to business impact, not AI activity or tool counts.</span></div>
+        <div class="w"><b>Vendor-neutral</b><span>We pick the best partner for every job — never locked to one stack.</span></div>
+        <div class="w"><b>You own it</b><span>We transfer the factory, the IP and the capability to your team.</span></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bro-foot">
+      <div class="promise">We design the future. Our partners build it. <span>You own the outcome.</span></div>
+      <div class="contact"><b>Book a briefing</b><br>hello@frontierx.example · frontierx.example</div>
+    </div>
+    <div class="bro-copy">© FRONTIER XX 2026</div>
+  </div>
+</body>
+</html>

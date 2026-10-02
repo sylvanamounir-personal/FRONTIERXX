@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Process Rewiring — FRONTIER XX</title>
+<meta name="description" content="We rewire business outcomes per domain — lean before agents — then deploy connected agents on a shared MCP foundation.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* ===== Agentic Process Flow visuals (scoped: .apf-) ===== */
+
+  /* --- Value matrix: Automate / Augment / Avoid --- */
+  .apf-value { display:grid; grid-template-columns:1.05fr 1fr; gap:34px; align-items:stretch; }
+  @media (max-width:860px){ .apf-value { grid-template-columns:1fr; } }
+  .apf-idlist { display:grid; gap:12px; margin-top:18px; }
+  .apf-id { display:flex; gap:12px; align-items:flex-start; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-sm); padding:13px 15px; box-shadow:var(--shadow-sm); }
+  .apf-id .ic { font-size:1.3rem; line-height:1.4; flex:0 0 auto; }
+  .apf-id b { color:var(--navy); display:block; font-size:.98rem; }
+  .apf-id span { color:var(--muted); font-size:.86rem; }
+
+  .apf-matrix { position:relative; padding:0 0 30px 46px; }
+  .apf-ylabel { position:absolute; left:0; top:0; bottom:30px; width:22px; writing-mode:vertical-rl;
+    transform:rotate(180deg); display:flex; align-items:center; justify-content:center;
+    font-size:.72rem; font-weight:800; letter-spacing:1.5px; color:var(--muted); }
+  .apf-xlabel { text-align:center; font-size:.72rem; font-weight:800; letter-spacing:1.5px; color:var(--muted); margin-top:8px; }
+  .apf-quad { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:10px; }
+  .apf-cell { border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px; background:var(--card);
+    box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:5px; min-height:122px; }
+  .apf-cell .t { font-weight:800; color:var(--navy); font-size:.95rem; }
+  .apf-cell .d { font-size:.82rem; color:var(--muted); line-height:1.4; }
+  .apf-cell .ex { font-size:.76rem; color:var(--blue); font-weight:600; margin-top:auto; }
+  .apf-cell.auto  { border-top:3px solid var(--blue); }
+  .apf-cell.both  { border-top:3px solid var(--gold); }
+  .apf-cell.aug   { border-top:3px solid var(--indigo); }
+  .apf-cell.avoid { border-top:3px solid var(--line); background:#f3f4f7; }
+  .apf-cell.avoid .t { color:var(--muted); }
+  .apf-ends { display:flex; justify-content:space-between; font-size:.72rem; font-weight:700; color:var(--muted); margin-top:4px; padding:0 2px; }
+
+  /* --- Radial agentic cycle --- */
+  .apf-cyclewrap { overflow-x:auto; padding:6px 0 10px; }
+  .apf-stage { position:relative; width:820px; height:680px; margin:0 auto; }
+  @media (max-width:880px){ .apf-stage { transform:scale(.78); transform-origin:top left; height:530px; } }
+  @media (max-width:680px){ .apf-stage { transform:scale(.62); height:420px; } }
+  .apf-ring { position:absolute; left:50%; top:330px; width:560px; height:560px; transform:translate(-50%,-50%);
+    border:2px dashed var(--mist); border-radius:50%; }
+  .apf-node { position:absolute; width:196px; transform:translate(-50%,-50%);
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius-sm);
+    box-shadow:var(--shadow-md); padding:12px 14px; }
+  .apf-node .nhd { display:flex; align-items:center; gap:9px; margin-bottom:4px; }
+  .apf-node .nn { width:26px; height:26px; flex:0 0 auto; border-radius:50%; color:#fff; font-weight:800;
+    font-size:.85rem; display:flex; align-items:center; justify-content:center; }
+  .apf-node h4 { margin:0; font-size:.95rem; color:var(--navy); line-height:1.15; }
+  .apf-node p { margin:0; font-size:.8rem; color:var(--muted); line-height:1.35; }
+  .apf-center { position:absolute; left:410px; top:330px; width:224px; height:224px; transform:translate(-50%,-50%);
+    border-radius:50%; background:var(--grad-hero); color:#fff; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:26px; box-shadow:var(--shadow-lg); }
+  .apf-center .bot { width:40px; height:40px; border-radius:11px; background:rgba(255,255,255,.16);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; margin-bottom:8px; }
+  .apf-center h3 { margin:0 0 6px; font-size:1rem; letter-spacing:.5px; }
+  .apf-center p { margin:0; font-size:.76rem; color:#cfe0ff; line-height:1.35; }
+  .apf-lp { position:absolute; font-size:.64rem; font-weight:800; letter-spacing:1px; color:var(--blue);
+    background:var(--card); border:1px solid var(--line); border-radius:20px; padding:3px 9px; box-shadow:var(--shadow-sm); }
+  .apf-lp.reason  { left:410px; top:202px; transform:translate(-50%,-50%); }
+  .apf-lp.act     { left:540px; top:330px; transform:translate(-50%,-50%); }
+  .apf-lp.observe { left:410px; top:458px; transform:translate(-50%,-50%); }
+  .apf-lp.learn   { left:280px; top:330px; transform:translate(-50%,-50%); }
+
+  /* --- Outcomes chain --- */
+  .apf-chain { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; margin-top:10px; }
+  .apf-chain .oc { display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--line);
+    border-radius:40px; padding:9px 16px; box-shadow:var(--shadow-sm); }
+  .apf-chain .oi { width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; font-weight:800;
+    font-size:.82rem; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .apf-chain b { color:var(--navy); font-size:.9rem; }
+  .apf-chain .sep { color:var(--blue-light); font-weight:800; }
+
+  /* --- Architecture layer stack --- */
+  .apf-arch { display:grid; gap:9px; max-width:940px; margin:0 auto; }
+  .apf-layer { border-radius:var(--radius-sm); padding:16px 22px; color:#fff; display:flex; justify-content:space-between;
+    align-items:center; gap:16px; box-shadow:var(--shadow-sm); flex-wrap:wrap; }
+  .apf-layer b { font-size:1.02rem; letter-spacing:.3px; }
+  .apf-layer small { opacity:.9; font-size:.84rem; font-weight:600; }
+  .apf-l1 { background:var(--navy); }
+  .apf-l2 { background:var(--blue); }
+  .apf-l3 { background:#334867; }
+  .apf-l4 { background:var(--muted); }
+  .apf-l5 { background:#6E7C92; }
+</style>
+</head>
+<body>
+<div class="accent-bar"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="home.html"><img class="brandmark" src="assets/logo-lockup-light.svg" alt="FRONTIER XX"><span class="brand-tag">Build the next enterprise.</span></a>
+    <div class="nav-links">
+      <a href="home.html#role">Our Role</a>
+      <a href="home.html#services">Services</a>
+      <a href="home.html#ecosystem">Ecosystem</a>
+      <a href="home.html#method">Method</a>
+      <a href="assessment.html">AI Readiness</a>
+      <a class="nav-cta" href="home.html#contact">Book a Briefing</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="home.html">Home</a> / Service 2 · Process Rewiring</div>
+    <span class="svc-badge sw-2" style="color:#fff;">Recipe · AI-Powered Process Redesign</span>
+    <h1>Agentic Process Rewiring</h1>
+    <p>We assess and rewire business outcomes domain by domain. Lean before agents — then connected agents on a shared MCP foundation turn enterprise data into faster, continuously improving decisions. We design it; our partners build it.</p>
+  </div>
+</header>
+
+<section class="block">
+  <div class="container" style="max-width:900px;">
+    <div class="reveal">
+      <span class="kicker">The principle</span>
+      <h2 style="color:var(--navy);">Don't automate the dysfunction</h2>
+      <p style="color:var(--muted);font-size:1.08rem;">Most processes were not designed for the AI era. Dropping an agent into an existing process often just automates the dysfunction — making one step faster while leaving the overall flow fragmented. The better pattern is to redesign the workflow itself, then introduce agents into a flow that is ready to compound.</p>
+      <p class="quote">"Lean before agents" is a critical step so we don't carry over the waste.<cite>— AI-Powered Process Redesign, Frontier Firm Playbook</cite></p>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <span class="kicker">Our signature method</span>
+      <h2 style="color:var(--navy);">The Agentic Rewiring Framework — 5 steps</h2>
+      <p style="color:var(--muted);font-size:1.08rem;">A repeatable method to rewire any business process for an agentic operating model. We <strong>Reveal</strong> the real work, <strong>Reduce</strong> the waste, <strong>Redesign</strong> the human + agent model, <strong>Rewire</strong> it with connected agents on shared context, and <strong>Reinforce</strong> it so it compounds.</p>
+    </div>
+    <div class="steps" style="margin-top:24px;">
+      <div class="step reveal"><div class="dot">1</div><div><h4>Reveal — map the work as it really happens</h4><p>Gemba, process mining, task decomposition and structured interviews reveal how the work actually flows — across roles, systems, handoffs, approvals and decision rights — not how the org chart says it does.</p></div></div>
+      <div class="step reveal"><div class="dot">2</div><div><h4>Reduce — lean before agents</h4><p>We clear unnecessary approvals, redundant handoffs, unclear ownership and manual reconciliation first, so we never carry the waste into the new design.</p></div></div>
+      <div class="step reveal"><div class="dot">3</div><div><h4>Redesign — the human + agent operating model</h4><p>We define which steps stay human-led, which become agent-operated with review, and which grow autonomous — autonomy calibrated to the stakes of each decision — and build a shared data foundation / MCP layer agents can reason over.</p></div></div>
+      <div class="step reveal"><div class="dot">4</div><div><h4>Rewire — deploy connected agents on shared context</h4><p>Purpose-built agents are introduced into the ready flow, orchestrated over MCP with guardrails, so they compound value instead of automating dysfunction.</p></div></div>
+      <div class="step reveal"><div class="dot">5</div><div><h4>Reinforce — measure, learn, reuse</h4><p>Telemetry, shared orchestration, observability and governance make the second workflow easier than the first — with named cross-functional squads owning the outcome.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Agent model + cross-domain -->
+<section class="block" style="background:var(--mist);">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">Inside the rewiring</span><h2>How a rewired process runs</h2><p>Every rewired process runs on the same agent interaction loop over a shared MCP foundation — and the blueprint applies to any domain.</p></div>
+    <div class="grid grid-2" style="align-items:stretch;">
+      <div class="card reveal">
+        <span class="tag">Agent interaction model</span>
+        <h3>Perceive → Reason → Act → Approve → Learn</h3>
+        <ul>
+          <li><strong>1 · Perceive</strong> — pull live context &amp; business rules via MCP</li>
+          <li><strong>2 · Reason</strong> — simulate options, forecasts &amp; trade-offs</li>
+          <li><strong>3 · Recommend / Act</strong> — propose or execute within guardrails</li>
+          <li><strong>4 · Human Approve</strong> — the process owner confirms high-impact calls</li>
+          <li><strong>5 · Learn ↻</strong> — outcomes feed back to sharpen the next decision</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Where it applies</span>
+        <h3>One blueprint, many domains</h3>
+        <div class="table-wrap" style="box-shadow:none;border:none;">
+          <table style="min-width:unset;">
+            <tbody>
+              <tr><td>Supply chain</td><td><strong>Planning · sourcing · fulfillment</strong></td></tr>
+              <tr><td>Finance</td><td><strong>Close · forecasting · controls</strong></td></tr>
+              <tr><td>Customer service</td><td><strong>Triage · resolution · QA</strong></td></tr>
+              <tr><td>HR &amp; recruiting</td><td><strong>Screening · onboarding</strong></td></tr>
+              <tr><td>Sales operations</td><td><strong>Pipeline · deal packaging</strong></td></tr>
+              <tr><td>Procurement</td><td><strong>Intake · approvals · spend</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:22px;">We assess your highest-value process, then rewire it with the 5-step framework above.</p>
+  </div>
+</section>
+
+<!-- Where agents add value: Automate / Augment / Avoid -->
+<section class="block">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">Why &amp; where</span><h2>Where agents add the most value</h2><p>Before we rewire, we score each task on how often it happens (frequency) against the upside of getting it right and the downside of getting it wrong (value) — to decide whether to <strong>automate</strong>, <strong>augment</strong>, or <strong>avoid</strong>.</p></div>
+    <div class="apf-value">
+      <div class="reveal">
+        <h3 style="color:var(--navy);margin:0 0 4px;">How we spot an agentic process</h3>
+        <p style="color:var(--muted);font-size:.95rem;margin:0;">Four signals tell us a process is ready to be rewired for agents.</p>
+        <div class="apf-idlist">
+          <div class="apf-id"><span class="ic">🔁</span><div><b>High-frequency &amp; repetitive</b><span>Done the same way every cycle — small gains compound</span></div></div>
+          <div class="apf-id"><span class="ic">🧩</span><div><b>Data-heavy &amp; connected</b><span>Needs context pulled from many systems &amp; sources</span></div></div>
+          <div class="apf-id"><span class="ic">🧠</span><div><b>Decision-oriented, high value</b><span>Reasoning, forecasting &amp; trade-offs with real P&amp;L impact</span></div></div>
+          <div class="apf-id"><span class="ic">✅</span><div><b>Human judgment on high risk</b><span>Keep an owner in the loop where the downside is large</span></div></div>
+        </div>
+      </div>
+      <div class="apf-matrix reveal">
+        <div class="apf-ylabel">FREQUENCY →</div>
+        <div class="apf-quad">
+          <div class="apf-cell auto"><div class="t">🤖 Automate</div><div class="d">High-frequency, lower-value — full automation; downside is low and efficiency adds up.</div><div class="ex">e.g. data entry, status updates, reconciliation</div></div>
+          <div class="apf-cell both"><div class="t">🤖👤 Automate or Augment</div><div class="d">High-frequency, high-value — prime for agents, but keep a human in the loop when risk is high.</div><div class="ex">e.g. planning, pricing, triage &amp; routing</div></div>
+          <div class="apf-cell avoid"><div class="t">✕ Avoid</div><div class="d">Low-frequency, lower-value — probably not worth automating at all.</div></div>
+          <div class="apf-cell aug"><div class="t">👤 Augment</div><div class="d">Low-frequency, high-value — blend of agent + human, especially if complex or sensitive.</div><div class="ex">e.g. strategy, structural trade-offs</div></div>
+        </div>
+        <div class="apf-ends"><span>Low value</span><span>High value</span></div>
+        <div class="apf-xlabel">VALUE →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flagship radial: the agentic process cycle -->
+<section class="block" style="background:var(--mist);">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">The agentic process</span><h2>The agentic process cycle</h2><p>Every rewired process runs as one continuous cycle — an agent senses context, reasons over options, acts within guardrails, and learns from the outcome, with a human owner on the high-stakes calls.</p></div>
+    <div class="apf-cyclewrap reveal">
+      <div class="apf-stage">
+        <div class="apf-ring"></div>
+
+        <div class="apf-node" style="left:410px;top:60px;"><div class="nhd"><div class="nn" style="background:var(--blue);">1</div><h4>Understand Context</h4></div><p>Collect &amp; connect signals across systems via MCP</p></div>
+        <div class="apf-node" style="left:621px;top:162px;"><div class="nhd"><div class="nn" style="background:var(--navy);">2</div><h4>Generate Insights</h4></div><p>Turn data into opportunities, risks &amp; gaps</p></div>
+        <div class="apf-node" style="left:673px;top:390px;"><div class="nhd"><div class="nn" style="background:var(--indigo);">3</div><h4>Prioritize &amp; Decide</h4></div><p>Weigh impact, effort &amp; trade-offs</p></div>
+        <div class="apf-node" style="left:527px;top:573px;"><div class="nhd"><div class="nn" style="background:var(--magenta);">4</div><h4>Take Action</h4></div><p>Execute across the value chain within guardrails</p></div>
+        <div class="apf-node" style="left:293px;top:573px;"><div class="nhd"><div class="nn" style="background:var(--coral);">5</div><h4>Observe &amp; Measure</h4></div><p>Track results against targets in real time</p></div>
+        <div class="apf-node" style="left:147px;top:390px;"><div class="nhd"><div class="nn" style="background:var(--gold);color:var(--navy);">6</div><h4>Learn &amp; Refine</h4></div><p>Improve, codify &amp; share what works</p></div>
+        <div class="apf-node" style="left:199px;top:162px;"><div class="nhd"><div class="nn" style="background:var(--blue-light);">7</div><h4>Adapt &amp; Plan Next</h4></div><p>Plan the next cycle with confidence</p></div>
+
+        <span class="apf-lp reason">REASON</span>
+        <span class="apf-lp act">ACT</span>
+        <span class="apf-lp observe">OBSERVE</span>
+        <span class="apf-lp learn">LEARN</span>
+
+        <div class="apf-center">
+          <div class="bot">AI</div>
+          <h3>THE AGENT</h3>
+          <p>Understands goals, context &amp; constraints to make the next best decision</p>
+        </div>
+      </div>
+    </div>
+    <div class="apf-chain reveal">
+      <div class="oc"><span class="oi">D</span><b>Data</b></div><span class="sep">›</span>
+      <div class="oc"><span class="oi">I</span><b>Insight</b></div><span class="sep">›</span>
+      <div class="oc"><span class="oi">D</span><b>Decision</b></div><span class="sep">›</span>
+      <div class="oc"><span class="oi">A</span><b>Action</b></div><span class="sep">›</span>
+      <div class="oc"><span class="oi">I</span><b>Impact</b></div><span class="sep">›</span>
+      <div class="oc"><span class="oi">L</span><b>Learning</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- Connected architecture layer stack -->
+<section class="block">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">How it works</span><h2>The connected architecture</h2><p>The cycle runs on a connected stack — agents reason and act, MCP gives them secure context, systems and rules supply the ground truth, and a human owner stays in the loop. FRONTIER XX designs this architecture; our partners build and industrialize it.</p></div>
+    <div class="apf-arch reveal">
+      <div class="apf-layer apf-l1"><b>AI Agents</b><small>Decide · Recommend · Act</small></div>
+      <div class="apf-layer apf-l2"><b>MCP — Model Context Protocol</b><small>Secure · Standardized · Connected</small></div>
+      <div class="apf-layer apf-l3"><b>Connected Systems</b><small>ERP · CRM · data platforms · domain tools</small></div>
+      <div class="apf-layer apf-l4"><b>Context &amp; Rules</b><small>Business rules · constraints · guardrails</small></div>
+      <div class="apf-layer apf-l5"><b>Human-in-the-Loop</b><small>Approve · Override · Learn</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">Proof point</span><h2>What good looks like</h2><p>Results from a "lean before agents" redesign with purpose-built agents on a shared platform.</p></div>
+    <div class="grid grid-3">
+      <div class="card reveal" style="text-align:center;"><div class="stat"><div class="big">75%</div><div class="lbl" style="color:var(--muted);">reduction in cycle time across selected workflows</div></div></div>
+      <div class="card reveal" style="text-align:center;"><div class="stat"><div class="big">Lean</div><div class="lbl" style="color:var(--muted);">waste removed before a single agent was deployed</div></div></div>
+      <div class="card reveal" style="text-align:center;"><div class="stat"><div class="big">1 SoT</div><div class="lbl" style="color:var(--muted);">single source of truth on a shared agentic platform</div></div></div>
+    </div>
+    <div class="callout reveal" style="margin-top:30px;"><strong>This is Level 2 → Level 3.</strong> Process re-engineering moves domains from human-agent teams toward human-led, agent-operated workflows — with autonomy calibrated to risk.</div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Rewire your highest-value process</h2>
+    <p>We'll assess one process end to end and show you the "lean before agents" redesign before you commit.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="home.html#contact">Book a process assessment</a>
+      <a class="btn btn-ghost" href="service-factory.html">Next: Building the AI Factory →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="copyright">© FRONTIER XX 2026</div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

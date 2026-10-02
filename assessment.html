@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Readiness Assessment — FRONTIER XX</title>
+<meta name="description" content="A six-dimension AI readiness scorecard. Rate your organization and get an instant maturity level plus prioritized recommendations.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="accent-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="home.html"><img class="brandmark" src="assets/logo-lockup-light.svg" alt="FRONTIER XX"><span class="brand-tag">Build the next enterprise.</span></a>
+    <div class="nav-links">
+      <a href="home.html#role">Our Role</a>
+      <a href="home.html#services">Services</a>
+      <a href="home.html#ecosystem">Ecosystem</a>
+      <a href="home.html#method">Method</a>
+      <a href="assessment.html">AI Readiness</a>
+      <a class="nav-cta" href="home.html#contact">Book a Briefing</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="home.html">Home</a> / Service 3 · AI Readiness</div>
+    <span class="svc-badge sw-3" style="color:#fff;">Service 3 · Set Ambition &amp; Goals</span>
+    <h1>AI Readiness Assessment</h1>
+    <p>Rate your organization across six dimensions. In under five minutes you'll get a maturity level, a readiness score, and the three moves that matter most next.</p>
+    <a class="btn btn-download" style="margin-top:18px;" href="assets/pdf/FrontierX-AI-Readiness.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download this service (PDF)
+    </a>
+  </div>
+</header>
+
+<section class="block">
+  <div class="container" style="max-width:860px;">
+    <div class="section-head reveal" style="margin-bottom:34px;">
+      <span class="kicker">Self-assessment</span>
+      <h2>Where do you stand?</h2>
+      <p>For each dimension, pick the statement closest to your reality today. 1 = not started · 5 = at the frontier.</p>
+    </div>
+
+    <form id="assessForm" class="assess-card reveal">
+      <!-- Strategy -->
+      <div class="dim">
+        <div class="dim-head"><h4>1. Business Ambition &amp; Goals</h4><span class="dim-tag sw-1">Strategy</span></div>
+        <p class="desc">Is AI anchored to enterprise value with named executive owners — or adopted for its own sake?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="s1" name="strategy" value="1"><label for="s1">1 · No AI strategy</label></div>
+          <div class="opt"><input type="radio" id="s2" name="strategy" value="2"><label for="s2">2 · Vague intent</label></div>
+          <div class="opt"><input type="radio" id="s3" name="strategy" value="3"><label for="s3">3 · Goals defined</label></div>
+          <div class="opt"><input type="radio" id="s4" name="strategy" value="4"><label for="s4">4 · Owners named</label></div>
+          <div class="opt"><input type="radio" id="s5" name="strategy" value="5"><label for="s5">5 · Cascaded &amp; measured</label></div>
+        </div>
+      </div>
+
+      <!-- People -->
+      <div class="dim">
+        <div class="dim-head"><h4>2. People &amp; Adoption</h4><span class="dim-tag sw-2">People</span></div>
+        <p class="desc">Are employees using AI in the flow of work, with managers role-modeling and learning loops in place?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="p1" name="people" value="1"><label for="p1">1 · Few users</label></div>
+          <div class="opt"><input type="radio" id="p2" name="people" value="2"><label for="p2">2 · Early pilots</label></div>
+          <div class="opt"><input type="radio" id="p3" name="people" value="3"><label for="p3">3 · Role-based use</label></div>
+          <div class="opt"><input type="radio" id="p4" name="people" value="4"><label for="p4">4 · Habit forming</label></div>
+          <div class="opt"><input type="radio" id="p5" name="people" value="5"><label for="p5">5 · Embedded culture</label></div>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="dim">
+        <div class="dim-head"><h4>3. Process Readiness</h4><span class="dim-tag sw-3">Process</span></div>
+        <p class="desc">Are end-to-end workflows mapped and de-wasted so agents compound value rather than automate dysfunction?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="pr1" name="process" value="1"><label for="pr1">1 · Undocumented</label></div>
+          <div class="opt"><input type="radio" id="pr2" name="process" value="2"><label for="pr2">2 · Partly mapped</label></div>
+          <div class="opt"><input type="radio" id="pr3" name="process" value="3"><label for="pr3">3 · Mapped E2E</label></div>
+          <div class="opt"><input type="radio" id="pr4" name="process" value="4"><label for="pr4">4 · De-wasted</label></div>
+          <div class="opt"><input type="radio" id="pr5" name="process" value="5"><label for="pr5">5 · Agent-ready</label></div>
+        </div>
+      </div>
+
+      <!-- Data -->
+      <div class="dim">
+        <div class="dim-head"><h4>4. Data &amp; Technology</h4><span class="dim-tag sw-4">Data</span></div>
+        <p class="desc">Is your data AI-ready, with a shared source of truth and an MCP-style layer agents can reason over?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="d1" name="data" value="1"><label for="d1">1 · Siloed data</label></div>
+          <div class="opt"><input type="radio" id="d2" name="data" value="2"><label for="d2">2 · Some access</label></div>
+          <div class="opt"><input type="radio" id="d3" name="data" value="3"><label for="d3">3 · Integrations</label></div>
+          <div class="opt"><input type="radio" id="d4" name="data" value="4"><label for="d4">4 · Shared context</label></div>
+          <div class="opt"><input type="radio" id="d5" name="data" value="5"><label for="d5">5 · Governed MCP</label></div>
+        </div>
+      </div>
+
+      <!-- Governance -->
+      <div class="dim">
+        <div class="dim-head"><h4>5. Codified Advantage &amp; Controls</h4><span class="dim-tag sw-5" style="color:var(--navy);">Evals</span></div>
+        <p class="desc">Have you codified your "secret sauce" into private evals so AI works the way your company does?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="g1" name="governance" value="1"><label for="g1">1 · Generic AI</label></div>
+          <div class="opt"><input type="radio" id="g2" name="governance" value="2"><label for="g2">2 · Some prompts</label></div>
+          <div class="opt"><input type="radio" id="g3" name="governance" value="3"><label for="g3">3 · Standards set</label></div>
+          <div class="opt"><input type="radio" id="g4" name="governance" value="4"><label for="g4">4 · Private evals</label></div>
+          <div class="opt"><input type="radio" id="g5" name="governance" value="5"><label for="g5">5 · Learning loop</label></div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="dim">
+        <div class="dim-head"><h4>6. Security &amp; Governance</h4><span class="dim-tag sw-1">Security</span></div>
+        <p class="desc">Do agents have identity, risk-based permissions, and are their actions traceable, auditable &amp; reversible?</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" id="se1" name="security" value="1"><label for="se1">1 · No controls</label></div>
+          <div class="opt"><input type="radio" id="se2" name="security" value="2"><label for="se2">2 · Basic policy</label></div>
+          <div class="opt"><input type="radio" id="se3" name="security" value="3"><label for="se3">3 · Agent identity</label></div>
+          <div class="opt"><input type="radio" id="se4" name="security" value="4"><label for="se4">4 · Governed lifecycle</label></div>
+          <div class="opt"><input type="radio" id="se5" name="security" value="5"><label for="se5">5 · Defend at speed</label></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+        <button type="submit" class="btn btn-dark">Calculate my readiness →</button>
+        <button type="button" id="resetBtn" class="btn" style="background:var(--mist);color:var(--navy);">Reset</button>
+      </div>
+
+      <!-- Result -->
+      <div id="resultPanel" class="result-panel">
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <div class="score-ring" id="scoreValue">0%</div>
+          <div>
+            <div class="maturity" id="maturityLabel">—</div>
+            <h3>Your AI Readiness</h3>
+            <p id="maturityBlurb" style="margin:0;color:rgba(255,255,255,.9);max-width:460px;"></p>
+          </div>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px;">
+          <div>
+            <h4 style="color:#fff;margin:0 0 10px;">Dimension breakdown</h4>
+            <div id="breakdown"></div>
+          </div>
+          <div>
+            <h4 style="color:#fff;margin:0 0 10px;">Your top 3 priorities</h4>
+            <ul class="rec-list" id="recList"></ul>
+          </div>
+        </div>
+
+        <div style="margin-top:26px;">
+          <a class="btn btn-primary" href="home.html#contact">Book a briefing on these priorities →</a>
+        </div>
+      </div>
+    </form>
+
+    <div class="callout reveal" style="margin-top:36px;">
+      <strong>What happens next?</strong> Your self-assessment is the starting point. In a paid engagement we validate it with process mining, telemetry, and structured interviews — then turn it into a prioritized, costed roadmap with named owners.
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Turn your score into a roadmap</h2>
+    <p>We'll pressure-test your self-assessment and map your first engagement — adoption, process re-engineering, or factory build.</p>
+    <a class="btn btn-primary" href="home.html#contact">Book an executive briefing</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="copyright">© FRONTIER XX 2026</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
