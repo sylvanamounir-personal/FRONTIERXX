@@ -5,6 +5,7 @@
    ============================================================ */
 
 :root {
+  --logo-gold:   #B8983F;
   --blue:        #0F4C81;
   --blue-light:  #6D8FB0;
   --indigo:      #1F3A5F;
@@ -90,6 +91,8 @@ a:hover { text-decoration: underline; }
   font-size: .6rem; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
   color: var(--blue-light); line-height: 1;
 }
+.brand .brand-tag .slogan-x,
+.slogan-x { color: var(--logo-gold); }
 .brand:hover, .brand:hover .brand-tag { text-decoration: none; }
 .brand span.accent { color: var(--blue); }
 .nav-links { display: flex; gap: 26px; align-items: center; }
