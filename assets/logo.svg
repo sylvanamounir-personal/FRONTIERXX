@@ -1,0 +1,13 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FRONTIER XX logo">
+  <rect width="40" height="40" rx="11" fill="#1F3353"/>
+  <!-- ascending frontier path: nodes climbing to the peak -->
+  <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M9 29 L17 21 L23 25 L31 12" opacity="0.95"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="9" cy="29" r="2.6"/>
+    <circle cx="17" cy="21" r="2.6"/>
+    <circle cx="23" cy="25" r="2.6"/>
+    <circle cx="31" cy="12" r="3.4"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="232" height="40" viewBox="0 0 232 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FRONTIER XX">
+  <!-- mark -->
+  <rect width="40" height="40" rx="11" fill="#ffffff"/>
+  <g stroke="#1F3353" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M9 29 L17 21 L23 25 L31 12" opacity="0.95"/>
+  </g>
+  <g fill="#1F3353">
+    <circle cx="9" cy="29" r="2.6"/>
+    <circle cx="17" cy="21" r="2.6"/>
+    <circle cx="23" cy="25" r="2.6"/>
+    <circle cx="31" cy="12" r="3.4"/>
+  </g>
+
+  <!-- wordmark (light / for dark backgrounds) -->
+  <text x="52" y="27"
+        font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+        font-size="23" font-weight="700" letter-spacing="-0.4"
+        fill="#ffffff">FRONTIER<tspan dx="6" fill="#B8983F" font-weight="800">XX</tspan></text>
+</svg>
