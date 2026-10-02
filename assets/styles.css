@@ -226,6 +226,14 @@ th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--li
 th { background: var(--navy); color: #fff; font-weight: 700; }
 tr:last-child td { border-bottom: 0; }
 tbody tr:hover { background: var(--paper); }
+.domain-highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.domain-highlight {
+  display: flex; align-items: center; gap: 10px; min-height: 48px;
+  padding: 9px 11px; background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); color: var(--navy); font-size: .86rem;
+}
+.domain-highlight svg { width: 21px; height: 21px; flex: 0 0 auto; fill: none; stroke: var(--logo-gold); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 420px){ .domain-highlights { grid-template-columns: 1fr; } }
 
 /* ---------- CTA band ---------- */
 .cta-band { background: var(--grad-hero); color: #fff; text-align: center; padding: 72px 0; }
